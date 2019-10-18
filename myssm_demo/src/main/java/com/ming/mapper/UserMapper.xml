@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ming.mapper.UserMapper">
+   <!-- <select id="queryUserList" resultType="com.ming.po.User">
+        select * from user;
+    </select>-->
+
+    <resultMap id="myResultMap" type="com.ming.po.User">
+        <id column="myNumber" property="userId"/>
+        <result column="myName" property="userName"/>
+        <result column="birthday" property="birthday"/>
+        <result column="sex" property="userSex"/>
+        <result column="address" property="userAddr"/>
+    </resultMap>
+    <select id="queryUserList" resultMap="myResultMap">
+        select
+            id as myNumber,
+            username as myName,
+            birthday,
+            sex,
+            address
+        from
+            user;
+    </select>
+</mapper>
